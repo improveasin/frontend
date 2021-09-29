@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no" />
+    <link rel="stylesheet" href="/assets/fonts/simple-line-icons/css/simple-line-icons.css">
+    <link rel="stylesheet" href="/assets/fonts/iconsmind-s/css/iconsminds.css">
+    <title>Improveasin</title>
+
+    <style>
+        .loading {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border: 2px solid rgba(0, 0, 0, .2);
+            border-radius: 50%;
+            border-top-color: rgba(0, 0, 0, .4);
+            animation: spin 1s ease-in-out infinite;
+            -webkit-animation: spin 1s ease-in-out infinite;
+            left: calc(50%);
+            top: calc(50%);
+            position: fixed;
+            z-index: 1;
+        }
+
+        @keyframes spin {
+            to {
+                -webkit-transform: rotate(360deg);
+            }
+        }
+
+        @-webkit-keyframes spin {
+            to {
+                -webkit-transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <script type="text/javascript">
+        window.onAmazonLoginReady = function () {
+            amazon.Login.setClientId('amzn1.application-oa2-client.40a26f114fae4d62b4961f60590c9d9a');
+        };
+    </script>
+    <script async src="https://assets.loginwithamazon.com/sdk/na/login1.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-979827159"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LQYNJ10XBD"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+        gtag('config', 'AW-979827159');
+        gtag('config', 'G-LQYNJ10XBD');
+    </script>
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '287218602610952');
+        fbq('track', 'PageView');
+    </script>
+    <noscript>
+        <img height="1" width="1" src="https://www.facebook.com/tr?id=287218602610952&ev=PageView
+      &noscript=1" />
+    </noscript>
+    <noscript>
+        You need to enable JavaScript to run this app.
+    </noscript>
+    <div id="app">
+        <div class="loading"></div>
+    </div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm run dev` or `yarn dev`.
+      To create a production bundle, use `npm run prod` or `yarn prod`.
+    -->
+</body>
+
+</html>
