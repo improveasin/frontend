@@ -1,6 +1,16 @@
 import Backendless from 'backendless';
 
-export default class Page {
+class Page {
+  constructor(rawData) {
+    this.rawData = rawData;
+  }
+
+  getTitle() {
+    return this.rawData.ItemInfo.Title.DisplayValue;
+  }
+}
+
+export default class PageService {
   static async getPages(userId) {
     return new Promise((resolve, reject) => {
       const whereClause = `ownerId = '${userId}'`
@@ -40,12 +50,12 @@ export default class Page {
       )
       response.then(data => {
         const rawData = data.ItemsResult.Items[0]
+        /* jshint ignore:start */
         const page = {
           title: rawData.ItemInfo.Title.DisplayValue,
           asin,
           salesRank: rawData.BrowseNodeInfo.BrowseNodes[0].SalesRank,
           category: rawData.BrowseNodeInfo.BrowseNodes[0].DisplayName,
-          brand: rawData.ItemInfo.ByLineInfo.Brand.DisplayValue,
           image: {
             url: rawData.Images.Primary.Large.URL,
             width: rawData.Images.Primary.Large.Width,
@@ -62,7 +72,16 @@ export default class Page {
           rawData,
         }
 
-        // is offer?
+        if (rawData.ItemInfo.ByLineInfo.Brand) {
+          page.brand = rawData.ItemInfo.ByLineInfo.Brand?.DisplayValue;
+        } else if (rawData.ItemInfo.ByLineInfo.Contributors) {
+          page.brand = rawData.ItemInfo.ByLineInfo.Contributors.reduce((brand, contributor, index) => {
+            return `${brand}, ${contributor.Name}`;
+          }, '');
+        } else {
+          page.brand = '';
+        }
+
         if ('Offers' in rawData) {
           if ('SavingBasis' in rawData.Offers?.Listings[0]) {
             page.price = rawData.Offers.Listings[0].SavingBasis.DisplayAmount;
@@ -76,6 +95,8 @@ export default class Page {
           page.price = undefined;
           page.reducedPrice = undefined;
         }
+
+        /* jshint ignore:end */
 
         Backendless.Data.of('pages')
           .save(page)

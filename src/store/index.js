@@ -9,16 +9,7 @@ import VuexPersistence from 'vuex-persist'
 
 Vue.use(Vuex)
 
-const vuexLocal = new VuexPersistence({
-  reducer: (state) => {
-    console.log('state', state);
-    if (state.pages.pages) {
-      state.pages = state.pages.pages;
-    }
-    return state;
-  },
-  storage: window.localStorage
-})
+const vuexLocal = new VuexPersistence()
 
 export const getInitialState = () => {
   return {

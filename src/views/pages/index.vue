@@ -19,6 +19,9 @@
         :perPage="perPage"
       ></list-page-heading>
       <template v-if="isLoad">
+        <div class="loading"></div>
+      </template>
+      <template v-else>
         <list-page-listing
           :displayMode="displayMode"
           :items="items"
@@ -32,16 +35,11 @@
           :onContextMenuAction="onContextMenuAction"
         ></list-page-listing>
       </template>
-      <template v-else>
-        <div class="loading"></div>
-      </template>
     </b-colxx>
   </b-row>
 </template>
 
 <script>
-import axios from "axios";
-import { apiUrl } from "../../constants/config";
 import ListPageHeading from "../../containers/pages/ListPageHeading";
 import ListPageListing from "../../containers/pages/ListPageListing";
 import { mapGetters } from "vuex";
@@ -49,16 +47,15 @@ import { mapGetters } from "vuex";
 export default {
   components: {
     "list-page-heading": ListPageHeading,
-    "list-page-listing": ListPageListing,
+    "list-page-listing": ListPageListing
   },
   data() {
     return {
       isLoad: true,
-      apiBase: apiUrl + "/cakes/fordatatable",
       displayMode: "list",
       sort: {
         column: "title",
-        label: "Product Name",
+        label: "Product Name"
       },
       page: 1,
       perPage: 4,
@@ -67,7 +64,7 @@ export default {
       to: 0,
       total: 0,
       lastPage: 0,
-      selectedItems: [],
+      selectedItems: []
     };
   },
   methods: {
@@ -90,7 +87,7 @@ export default {
       if (this.selectedItems.length >= this.items.length) {
         if (isToggle) this.selectedItems = [];
       } else {
-        this.selectedItems = this.items.map((x) => x.id);
+        this.selectedItems = this.items.map(x => x.id);
       }
     },
     keymap(event) {
@@ -125,13 +122,13 @@ export default {
           Math.max(start, end) + 1
         );
         this.selectedItems.push(
-          ...itemsForToggle.map((item) => {
+          ...itemsForToggle.map(item => {
             return item.id;
           })
         );
       } else {
         if (this.selectedItems.includes(itemId)) {
-          this.selectedItems = this.selectedItems.filter((x) => x !== itemId);
+          this.selectedItems = this.selectedItems.filter(x => x !== itemId);
         } else this.selectedItems.push(itemId);
       }
     },
@@ -148,14 +145,13 @@ export default {
     },
     changePage(pageNum) {
       this.page = pageNum;
-    },
+    }
   },
   computed: {
     ...mapGetters({
-      getPages: "pages/getPages",
+      getPages: "pages/getPages"
     }),
     isSelectedAll() {
-      return false;
       return this.selectedItems.length >= this.items.length;
     },
     isAnyItemSelected() {
@@ -164,22 +160,28 @@ export default {
         this.selectedItems.length < this.items.length
       );
     },
-    apiUrl() {
-      return `${this.apiBase}?sort=${this.sort.column}&page=${this.page}&per_page=${this.perPage}&search=${this.search}`;
-    },
-    async items() {
-      const pages = await this.$store.getters["pages/getPages"];
+    items() {
+      console.log(`items `, this.search);
+
+      const pages = this.getPages;
+
       if (pages) {
-        console.log("items", pages);
-        return pages.pages;
+        this.isLoad = false;
+
+        if (this.search.length === 0) {
+          return pages;
+        }
+
+        return pages.filter(page => {
+          return page.title.toLowerCase().indexOf(this.search.toLowerCase()) > -1;
+        });
       }
-      this.isLoad = true;
-    },
+    }
   },
   watch: {
     search() {
       this.page = 1;
-    },
-  },
+    }
+  }
 };
 </script>

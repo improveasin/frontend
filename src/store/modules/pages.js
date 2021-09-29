@@ -1,32 +1,38 @@
 const state = {
-    pages: []
+  pages: []
 }
 
 const getters = {
-    getPages() {
-        console.log('getters getPages', state.pages);
-        return state.pages
-    }
+  getPages(state) {
+    return state;
+    /*
+      console.log('getters getPages', state, state.pages);
+      debugger
+      return state.pages
+      */
+  }
 }
 
 const mutations = {
-    setPages(state, pages) {
-        console.log('mutations setPages', state, pages);
-        state.pages = pages
-    }
+  setPages(state, pages) {
+    console.log('mutations setPages', state, pages);
+    debugger
+    state.pages = pages
+  }
 }
 
 const actions = {
-    setPages({ commit }, pages) {
-        console.log('actions setPages', pages);
-        commit('setPages', pages)
-    }
+  setPages({ commit }, pages) {
+    console.log('actions setPages', pages);
+    debugger
+    commit('setPages', pages)
+  }
 }
 
 export default {
-    namespaced: true,
-    state,
-    getters,
-    mutations,
-    actions
+  namespaced: true,
+  state,
+  getters,
+  mutations,
+  actions
 }
