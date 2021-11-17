@@ -1,6 +1,5 @@
 <template>
   <b-card
-    @click.prevent="toggleItem($event, data.asin)"
     :class="{
       'd-flex flex-row': true,
       active: selectedItems.includes(data.asin)
@@ -21,15 +20,29 @@
         <router-link :to="`?p=${data.asin}`" class="w-40 w-sm-100">
           <p class="list-item-heading mb-0 truncate">{{ data.title }}</p>
         </router-link>
-        <p class="mb-0 text-muted text-small w-15 w-sm-100">
+        <p class="mb-0 text-muted text-small w-sm-100">
           {{ data.category }}
         </p>
-        <p class="mb-0 text-muted text-small w-15 w-sm-100">
-          {{  }}
+        <p class="mb-0 text-muted text-small w-sm-100">
+          <b-button-group>
+            <b-button
+              type="button"
+              variant="light"
+              @click.prevent="toggleModal($event, data)"
+            >
+              <b-icon icon="pencil-fill" aria-hidden="true"></b-icon>
+            </b-button>
+            <b-button type="button" variant="light">
+              <b-link :href="`/pages/${data.objectId}`" target="_blank">
+                <b-icon icon="eye" aria-hidden="true"></b-icon>
+              </b-link>
+            </b-button>
+          </b-button-group>
         </p>
       </div>
       <div class="custom-control custom-checkbox pl-1 align-self-center pr-4">
         <b-form-checkbox
+          @click.prevent="toggleItem($event, data.asin)"
           :checked="selectedItems.includes(data.asin)"
           class="itemCheck mb-0"
         />
@@ -44,6 +57,12 @@ export default {
   methods: {
     toggleItem(event, itemId) {
       this.$emit("toggle-item", event, itemId);
+    },
+    toggleModal(event, data) {
+      this.$emit("toggle-modal", event, data);
+    },
+    showLandingPage(event, data) {
+      this.$emit("show-landing-page", event, data);
     }
   }
 };

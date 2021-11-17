@@ -1,38 +1,39 @@
-import Vue from 'vue'
-import App from './App'
-
+import Backendless from 'backendless'
 // BootstrapVue add
-import BootstrapVue from 'bootstrap-vue'
-// Router & Store add
-import router from './router'
-import store from './store'
+import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue'
+import firebase from 'firebase/app'
+import 'firebase/auth'
+import contentmenu from 'v-contextmenu'
+import Vue from 'vue'
+import VueI18n from 'vue-i18n'
+import VueLineClamp from 'vue-line-clamp'
+// Perfect Scrollbar Add
+import vuePerfectScrollbar from 'vue-perfect-scrollbar'
+import VueScrollTo from 'vue-scrollto'
+import VueTailwind from 'vue-tailwind'
+import App from './App'
+// Breadcrumb Component Add
+import Breadcrumb from './components/Common/Breadcrumb'
+// Colxx Component Add
+import Colxx from './components/Common/Colxx'
+// Notification Component Add
+import Notifications from './components/Common/Notification'
+// RefreshButton Component Add
+import RefreshButton from './components/Common/RefreshButton'
+import { firebaseConfig } from './constants/config'
 // Multi Language Add
 import en from './locales/en.json'
 import es from './locales/es.json'
-import VueI18n from 'vue-i18n'
-import { firebaseConfig } from './constants/config'
-// Notification Component Add
-import Notifications from './components/Common/Notification'
-// Breadcrumb Component Add
-import Breadcrumb from './components/Common/Breadcrumb'
-// RefreshButton Component Add
-import RefreshButton from './components/Common/RefreshButton'
-// Colxx Component Add
-import Colxx from './components/Common/Colxx'
-// Perfect Scrollbar Add
-import vuePerfectScrollbar from 'vue-perfect-scrollbar'
-import contentmenu from 'v-contextmenu'
-import VueLineClamp from 'vue-line-clamp'
-import VueScrollTo from 'vue-scrollto'
-import firebase from 'firebase/app'
-import 'firebase/auth'
+// Router & Store add
+import router from './router'
+import store from './store'
 import { getCurrentLanguage } from './utils'
-import Backendless from 'backendless'
-import VueTailwind from 'vue-tailwind'
+
 
 Backendless.initApp('8F146EC9-7BA1-8E5E-FF1B-6EABA0EC1200', '25852AEC-8634-4D2A-A087-DF435F488BB0')
 
 Vue.use(BootstrapVue);
+Vue.use(BootstrapVueIcons);
 Vue.use(VueI18n);
 const messages = { en, es };
 const locale = getCurrentLanguage();

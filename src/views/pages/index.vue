@@ -27,6 +27,8 @@
           :items="items"
           :selectedItems="selectedItems"
           :toggleItem="toggleItem"
+          :toggleModal="toggleModal"
+          :showLandingPage="showLandingPage"
           :lastPage="lastPage"
           :perPage="perPage"
           :page="page"
@@ -34,6 +36,18 @@
           :handleContextMenu="handleContextMenu"
           :onContextMenuAction="onContextMenuAction"
         ></list-page-listing>
+
+        <b-modal
+          button-size="lg"
+          id="new-landing-page"
+          ref="new-landing-page"
+          :title="`ASIN: ${currentLandingPage.asin}`"
+          size="xl"
+        >
+          <landing-page-modal
+            :landingPage="currentLandingPage"
+          ></landing-page-modal>
+        </b-modal>
       </template>
     </b-colxx>
   </b-row>
@@ -42,17 +56,20 @@
 <script>
 import ListPageHeading from "../../containers/pages/ListPageHeading";
 import ListPageListing from "../../containers/pages/ListPageListing";
+import LandingPageModal from "../../components/Modals/LandingPageModal.vue";
+
 import { mapGetters } from "vuex";
 
 export default {
   components: {
+    "landing-page-modal": LandingPageModal,
     "list-page-heading": ListPageHeading,
     "list-page-listing": ListPageListing
   },
   data() {
     return {
       isLoad: true,
-      displayMode: "list",
+      displayMode: "thumb",
       sort: {
         column: "title",
         label: "Product Name"
@@ -64,7 +81,10 @@ export default {
       to: 0,
       total: 0,
       lastPage: 0,
-      selectedItems: []
+      selectedItems: [],
+      currentLandingPage: {
+        asin: ""
+      }
     };
   },
   methods: {
@@ -132,6 +152,16 @@ export default {
         } else this.selectedItems.push(itemId);
       }
     },
+    toggleModal(event, data) {
+      this.currentLandingPage = data;
+      this.$bvModal.show("new-landing-page");
+    },
+    showLandingPage(event, data) {
+      this.$router.push({
+        name: "show-landing-page",
+        params: { id: data.objectId }
+      });
+    },
     handleContextMenu(vnode) {
       if (!this.selectedItems.includes(vnode.key)) {
         this.selectedItems = [vnode.key];
@@ -161,9 +191,8 @@ export default {
       );
     },
     items() {
-      console.log(`items `, this.search);
-
       const pages = this.getPages;
+      console.log(`pages `, pages);
 
       if (pages) {
         this.isLoad = false;
@@ -173,7 +202,9 @@ export default {
         }
 
         return pages.filter(page => {
-          return page.title.toLowerCase().indexOf(this.search.toLowerCase()) > -1;
+          return (
+            page.title.toLowerCase().indexOf(this.search.toLowerCase()) > -1
+          );
         });
       }
     }

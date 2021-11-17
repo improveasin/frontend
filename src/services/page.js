@@ -107,4 +107,12 @@ export default class PageService {
     });
   }
 
+  static async updatePage(page) {
+    return new Promise((resolve, reject) => {
+      Backendless.Data.of('pages').save(page)
+        .then(resolve)
+        .catch(reject)
+    });
+  }
+
 }

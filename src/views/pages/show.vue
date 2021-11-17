@@ -24,7 +24,7 @@
           <li v-if="page.size">Größe: {{ page.size }}</li>
         </ul>
         <img
-          src="@/assets/amazon_button.png"
+          src="/assets/img/amazon_button.png"
           height="50"
           style="cursor: pointer;"
           v-on:click="openProductUrl(page)"
@@ -45,55 +45,55 @@
 </template>
 
 <script>
-import Carousel from '@/components/Carousel.vue'
-import Backendless from 'backendless'
+import Carousel from "@/components/Carousel.vue";
+import Backendless from "backendless";
 
 export default {
   metaInfo: {
-    title: 'Improveasin',
+    title: "Improveasin"
   },
   components: {
-    Carousel,
+    Carousel
   },
   data() {
     return {
       loaded: false,
-      page: {},
-    }
+      page: {}
+    };
   },
 
   async created() {
-    const objectId = this.$router.currentRoute.params.id
+    const objectId = this.$route.params.id;
 
     const counter = await Backendless.Counters.incrementAndGet(
       `pages_${objectId}_view`
-    )
-    console.log(`counter for ${objectId} with number ${counter}`)
+    );
+    console.log(`counter for ${objectId} with number ${counter}`);
 
-    Backendless.Data.of('pages')
+    Backendless.Data.of("pages")
       .findById(objectId)
       .then(page => {
-        this.loaded = true
+        this.loaded = true;
 
-        this.page = page
-        console.log('page', page)
+        this.page = page;
+        console.log("page", page);
       })
       .catch(error => {
-        console.log('error', error)
-      })
+        console.log("error", error);
+      });
   },
 
   methods: {
     async openProductUrl(page) {
       const counter = await Backendless.Counters.incrementAndGet(
         `pages_${page.objectId}_click`
-      )
-      console.log(`click for ${page.objectId} with number ${counter}`)
+      );
+      console.log(`click for ${page.objectId} with number ${counter}`);
 
-      window.open(page.productUrl)
-    },
-  },
-}
+      window.open(page.productUrl);
+    }
+  }
+};
 </script>
 
 <style>

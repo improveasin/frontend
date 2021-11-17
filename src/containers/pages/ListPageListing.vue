@@ -1,12 +1,12 @@
 <template>
   <div>
-    <b-row v-if="displayMode==='image'" key="image">
+    <b-row v-if="displayMode === 'image'" key="image">
       <b-colxx
         sm="6"
         lg="4"
         xl="3"
         class="mb-3"
-        v-for="(item,index) in items"
+        v-for="(item, index) in items"
         :key="index"
         :id="item.id"
       >
@@ -15,40 +15,55 @@
           :data="item"
           :selected-items="selectedItems"
           @toggle-item="toggleItem"
+          @toggle-modal="toggleModal"
           v-contextmenu:contextmenu
         />
       </b-colxx>
     </b-row>
-    <b-row v-else-if="displayMode==='thumb'" key="thumb">
-      <b-colxx xxs="12" class="mb-3" v-for="(item,index) in items" :key="index" :id="item.id">
+    <b-row v-else-if="displayMode === 'thumb'" key="thumb">
+      <b-colxx
+        xxs="12"
+        class="mb-3"
+        v-for="(item, index) in items"
+        :key="index"
+        :id="item.id"
+      >
         <thumb-list-item
           :key="item.id"
           :data="item"
           :selected-items="selectedItems"
           @toggle-item="toggleItem"
+          @toggle-modal="toggleModal"
+          @show-landing-page="showLandingPage"
           v-contextmenu:contextmenu
         />
       </b-colxx>
     </b-row>
-    <b-row v-else-if="displayMode==='list'" key="list">
-
-      <b-colxx xxs="12" class="mb-3" v-for="(item,index) in items" :key="index" :id="item.id">
+    <b-row v-else-if="displayMode === 'list'" key="list">
+      <b-colxx
+        xxs="12"
+        class="mb-3"
+        v-for="(item, index) in items"
+        :key="index"
+        :id="item.id"
+      >
         <data-list-item
           :key="item.id"
           :data="item"
           :selected-items="selectedItems"
           @toggle-item="toggleItem"
+          @show-landing-page="showLandingPage"
           v-contextmenu:contextmenu
         />
       </b-colxx>
     </b-row>
-    <b-row v-if="lastPage>1">
+    <b-row v-if="lastPage > 1">
       <b-colxx xxs="12">
         <b-pagination-nav
           :number-of-pages="lastPage"
           :link-gen="linkGen"
           :value="page"
-          @change="(a)=>changePage(a)"
+          @change="a => changePage(a)"
           :per-page="perPage"
           align="center"
         >
@@ -82,6 +97,7 @@
         <span>Delete</span>
       </v-contextmenu-item>
     </v-contextmenu>
+
   </div>
 </template>
 <script>
@@ -99,6 +115,8 @@ export default {
     "items",
     "selectedItems",
     "toggleItem",
+    "toggleModal",
+    "showLandingPage",
     "lastPage",
     "perPage",
     "page",

@@ -13,6 +13,11 @@ const routes = [
     // redirect: `${adminRoot}/piaf`,
   },
   {
+    name: 'show-landing-page',
+    path: "/pages/:id",
+    component: () => import(/* webpackChunkName: "show" */ './views/pages/show')
+  },
+  {
     path: adminRoot,
     component: () => import(/* webpackChunkName: "app" */ "./views/app"),
     redirect: `${adminRoot}/dashboards`,
