@@ -1,11 +1,11 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import VuexPersistence from 'vuex-persist'
 import app from '../main'
 import { setCurrentLanguage } from '../utils'
 import menu from './modules/menu'
 import pages from './modules/pages'
 import user from './modules/user'
-import VuexPersistence from 'vuex-persist'
 
 Vue.use(Vuex)
 
