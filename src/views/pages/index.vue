@@ -104,7 +104,7 @@ export default {
     },
 
     selectAll(isToggle) {
-      if (this.selectedItems.length >= this.items.length) {
+      if (this.selectedItems && this.selectedItems.length >= this.items.length) {
         if (isToggle) this.selectedItems = [];
       } else {
         this.selectedItems = this.items.map(x => x.id);
