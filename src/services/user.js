@@ -37,7 +37,7 @@ export default class User {
                   Backendless.UserService.getCurrentUser().then(user => {
                     Page.getPages(user.objectId).then(items => {
                       log(`5/5 Fetch your landing pages...`);
-                      debugger
+
                       store.dispatch('pages/setPages', items);
 
                       resolve({ user: response.profile, token });

@@ -168,9 +168,7 @@
         >
           <template slot="button-content">
             <span class="name mr-1" v-if="currentUser">{{currentUser.Name}}</span>
-            <span v-if="currentUser">
-              <img :alt="currentUser.Name" src="/assets/img/profiles/l-1.jpg" />
-            </span>
+              <b-icon icon="person-fill" style="color: #ed7117;" font-scale="2"></b-icon>
           </template>
           <b-dropdown-item>Account</b-dropdown-item>
           <!--

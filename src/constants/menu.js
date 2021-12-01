@@ -2,12 +2,14 @@ import { adminRoot } from "./config";
 import { UserRole } from "../utils/auth.roles";
 
 const data = [
+  /*
   {
     id: "dashboard",
     icon: "iconsminds-dashboard",
     label: "menu.dashboards",
     to: "/app/dashboards",
   },
+*/
   {
     id: "pages",
     icon: "iconsminds-digital-drawing",

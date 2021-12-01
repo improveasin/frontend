@@ -20,7 +20,7 @@ const routes = [
   {
     path: adminRoot,
     component: () => import(/* webpackChunkName: "app" */ "./views/app"),
-    redirect: `${adminRoot}/dashboards`,
+    redirect: `${adminRoot}/pages`,
     meta: { loginRequired: true },
     /*
    define with Authorization :
@@ -33,6 +33,7 @@ const routes = [
         component: () => import(/* webpackChunkName: "dashboards" */ "./views/dashboards"),
       },
       {
+        name: "pages",
         path: "pages",
         component: () => import(/* webpackChunkName: "pages" */ "./views/pages"),
       },

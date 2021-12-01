@@ -19,7 +19,7 @@
         width="156"
         height="32"
       />
-      
+
     </a>
     &nbsp;&nbsp;<span class="status" ref="status"></span>
   </div>
@@ -62,7 +62,7 @@ export default {
         this.$store.dispatch('login', user)
         this.$refs.login.classList = []
 
-        this.$router.push({ name: 'dashboards' });
+        this.$router.push({ name: 'pages' });
       } catch (error) {
         console.log('error', error)
         this.$store.dispatch('logout')

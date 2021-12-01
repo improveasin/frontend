@@ -1,13 +1,14 @@
 const getters = {
   getPages(state) {
-    return state;
+    console.log('mutations getPages', state);
+    return state.pages;
   }
 }
 
 const mutations = {
   setPages(state, pages) {
     console.log('mutations setPages', state, pages);
-    state = pages
+    state.pages = pages
   }
 }
 
