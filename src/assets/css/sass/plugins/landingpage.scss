@@ -2,7 +2,7 @@
 .landing-page {
   font-size: 1rem;
   line-height: 1.6rem;
-  color: $secondary-color;
+  color: black;
 
   @include respond-below(sm) {
     font-size: 0.9rem;

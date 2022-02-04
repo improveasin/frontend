@@ -43,10 +43,9 @@
           ref="new-landing-page"
           :title="`ASIN: ${currentLandingPage.asin}`"
           size="xl"
+
         >
-          <landing-page-modal
-            :landingPage="currentLandingPage"
-          ></landing-page-modal>
+          <landing-page-modal :landingPage="currentLandingPage" />
         </b-modal>
       </template>
     </b-colxx>
@@ -64,7 +63,7 @@ export default {
   components: {
     "landing-page-modal": LandingPageModal,
     "list-page-heading": ListPageHeading,
-    "list-page-listing": ListPageListing
+    "list-page-listing": ListPageListing,
   },
   data() {
     return {
@@ -72,7 +71,7 @@ export default {
       displayMode: "thumb",
       sort: {
         column: "title",
-        label: "Product Name"
+        label: "Product Name",
       },
       page: 1,
       perPage: 4,
@@ -83,8 +82,8 @@ export default {
       lastPage: 0,
       selectedItems: [],
       currentLandingPage: {
-        asin: ""
-      }
+        asin: "",
+      },
     };
   },
   methods: {
@@ -104,10 +103,13 @@ export default {
     },
 
     selectAll(isToggle) {
-      if (this.selectedItems && this.selectedItems.length >= this.items.length) {
+      if (
+        this.selectedItems &&
+        this.selectedItems.length >= this.items.length
+      ) {
         if (isToggle) this.selectedItems = [];
       } else {
-        this.selectedItems = this.items.map(x => x.id);
+        this.selectedItems = this.items.map((x) => x.id);
       }
     },
     keymap(event) {
@@ -142,13 +144,13 @@ export default {
           Math.max(start, end) + 1
         );
         this.selectedItems.push(
-          ...itemsForToggle.map(item => {
+          ...itemsForToggle.map((item) => {
             return item.id;
           })
         );
       } else {
         if (this.selectedItems.includes(itemId)) {
-          this.selectedItems = this.selectedItems.filter(x => x !== itemId);
+          this.selectedItems = this.selectedItems.filter((x) => x !== itemId);
         } else this.selectedItems.push(itemId);
       }
     },
@@ -159,7 +161,7 @@ export default {
     showLandingPage(event, data) {
       this.$router.push({
         name: "show-landing-page",
-        params: { id: data.objectId }
+        params: { id: data.objectId },
       });
     },
     handleContextMenu(vnode) {
@@ -175,11 +177,11 @@ export default {
     },
     changePage(pageNum) {
       this.page = pageNum;
-    }
+    },
   },
   computed: {
     ...mapGetters({
-      getPages: "pages/getPages"
+      getPages: "pages/getPages",
     }),
     isSelectedAll() {
       return this.selectedItems.length >= this.items.length;
@@ -201,18 +203,18 @@ export default {
           return pages;
         }
 
-        return pages.filter(page => {
+        return pages.filter((page) => {
           return (
             page.title.toLowerCase().indexOf(this.search.toLowerCase()) > -1
           );
         });
       }
-    }
+    },
   },
   watch: {
     search() {
       this.page = 1;
-    }
-  }
+    },
+  },
 };
 </script>

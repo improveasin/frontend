@@ -83,19 +83,16 @@
                 <div class="col-12 col-xl-4 col-lg-5 col-md-6">
                   <div class="home-text">
                     <div class="display-1">
-                      Dein Amazon Landing Page Generator. 
+                      Dein Amazon Landing Page Generator.
                       <br /><b>100% kostenlos!</b>
                     </div>
                     <p class="white mb-5">
                       Steigere deinen Amazon Umsatz durch den gezielten Einsatz von Landingpages für deinen externen Traffic!
                       <br />
                       <br />ImproveASIN hilft dir externen Traffic optimal zu nutzen und das Ranking deiner Listings zu steigern. Erstelle in wenigen Schritten Conversion optimierte Landingpages mit ImproveASIN!
-                      
+
                     </p>
-                    <a class="btn btn-light btn-xl mr-2 mb-2" :href="adminRoot" target="_blank">
-                      VIEW NOW
-                      <i class="simple-icon-arrow-right"></i>
-                    </a>
+                    <AmazonLogin />
                   </div>
                 </div>
                 <div class="col-12 col-xl-7 offset-xl-1 col-lg-7 col-md-6 d-none d-md-block">
@@ -348,6 +345,8 @@ import VueScrollTo from "vue-scrollto";
 import HomeLayout from "../../layouts/HomeLayout";
 import GlideComponent from "../../components/Carousel/GlideComponent";
 import { adminRoot, buyUrl } from "../../constants/config";
+import AmazonLogin from "../../components/Amazon/Login.vue";
+
 const slideSettings = {
   type: "carousel",
   gap: 30,
@@ -530,7 +529,8 @@ export default {
   components: {
     "home-layout": HomeLayout,
     "glide-component": GlideComponent,
-    headroom: headroom
+    headroom: headroom,
+    AmazonLogin: AmazonLogin,
   },
   data() {
     return {

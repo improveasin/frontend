@@ -16,6 +16,7 @@ export default class PageService {
       const whereClause = `ownerId = '${userId}'`
       const queryBuilder = Backendless.DataQueryBuilder.create()
         .setWhereClause(whereClause)
+        .setSortBy('created DESC')
         .setPageSize(100)
 
       Backendless.Data.of('pages')

@@ -9,13 +9,12 @@ export default class Settings {
       .setPageSize(100)
 
     return new Promise((resolve, reject) => {
-
       Backendless.Data.of('settings')
         .find(queryBuilder)
         .then(async settings => {
           console.log(`settings`, settings)
 
-          resolve(settings[0])
+          resolve(settings.pop())
         })
         .catch(async error => {
           reject(error);
@@ -23,8 +22,13 @@ export default class Settings {
     });
   }
 
+  static async saveLogo(file, path) {
+    const result = await Backendless.Files.upload(file, path, true);
+
+    return result;
+  }
+
   static async saveSettings(settings) {
-    return Backendless.Data.of('settings')
-      .save(settings);
+    return Backendless.Data.of('settings').save(settings);
   }
 }

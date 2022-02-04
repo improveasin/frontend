@@ -474,7 +474,11 @@
     "password-confirm": "Confirm Password",
     "validation-bootstrap": "Bootstrap Validation",
     "validation-vuelidate": "Vuelidate Validation",
-    "name": "Name"
+    "name": "Name",
+    "analytics": "Analytics Pixel",
+    "facebookPixel": "Facebook",
+    "googleTagManager": "Google Tag Manager",
+    "logo": "Upload new logo"
 
 
   },

@@ -54,9 +54,11 @@
         </b-form-radio-group>
       </b-form-group>
     </div>
+    <!--
     <a href="#" class="theme-button" @click.prevent="toggle">
       <i class="simple-icon-magic-wand"></i>
     </a>
+    -->
   </div>
 </template>
 

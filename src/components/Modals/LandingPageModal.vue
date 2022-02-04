@@ -15,6 +15,16 @@
       <b-list-group-item>Impressions<br /><span>2</span></b-list-group-item>
       <b-list-group-item>Click<br /><span>4</span></b-list-group-item>
     </b-list-group>
+    <b-input-group prepend="Page url">
+      <b-form-input :value="`${host}/pages/${landingPage.objectId}`" />
+
+      <b-input-group-append>
+        <b-button v-clipboard:copy="`${host}/pages/${landingPage.objectId}`">
+          Copy url
+        </b-button>
+      </b-input-group-append>
+    </b-input-group>
+
 
     <br /><br />
 
@@ -40,17 +50,6 @@
 
     <br /><br />
 
-    <b-input-group prepend="Page url">
-      <b-form-input
-        :value="`${host}/pages/${landingPage.objectId}`"
-      ></b-form-input>
-
-      <b-input-group-append>
-        <b-button v-clipboard:copy="`${host}/pages/${landingPage.objectId}`">
-          Copy url
-        </b-button>
-      </b-input-group-append>
-    </b-input-group>
     <br /><br />
 
     <h3>{{ $t("forms.analytics") }}</h3>
@@ -99,11 +98,13 @@ export default {
     };
   },
   created() {
+      this.form.facebookPixel = this.landingPage.facebookPixel;
+      this.form.googleTagManager = this.landingPage.googleTagManager;
     console.log(this.landingPage);
-    debugger;
   },
   methods: {
     async onSubmit() {
+      debugger
       const page = { ...this.landingPage, ...this.form };
       const result = await Page.updatePage(page);
     }
