@@ -43,7 +43,9 @@
           ref="new-landing-page"
           :title="`ASIN: ${currentLandingPage.asin}`"
           size="xl"
-
+          @show="showModal"
+          @hidden="hideModal"
+          @ok="saveLandingPage"
         >
           <landing-page-modal :landingPage="currentLandingPage" />
         </b-modal>
@@ -87,6 +89,15 @@ export default {
     };
   },
   methods: {
+    showModal() {
+      debugger;
+    },
+    hideModal() {
+      debugger;
+    },
+    saveLandingPage() {
+      debugger;
+    },
     changeDisplayMode(displayType) {
       this.displayMode = displayType;
     },

@@ -77,8 +77,6 @@
           max-rows="6"
         ></b-form-textarea>
       </b-form-group>
-
-      <input type="submit" />
     </b-form>
   </div>
 </template>

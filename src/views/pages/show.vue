@@ -76,8 +76,8 @@ export default {
       this.googleTagManager = settings.googleTagManager;
       this.logo = settings.logo;
 
-      const scriptElement = document.createElement<HTMLScriptElement>('script');
-      document.body.appendChild(scriptElement);
+      //const scriptElement = document.createElement<HTMLScriptElement>('script');
+      //document.body.appendChild(scriptElement);
     }
 
     const objectId = this.$route.params.id;
