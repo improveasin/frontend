@@ -1,5 +1,14 @@
 <template>
-  <div>
+  <b-modal
+    button-size="lg"
+    id="new-landing-page"
+    ref="new-landing-page"
+    :title="`ASIN: ${landingPage.asin}`"
+    size="xl"
+    @show="showModal"
+    @hidden="hideModal"
+    @ok="saveLandingPage"
+  >
     <div class="d-flex flex-row">
       <img
         :src="landingPage.image.url"
@@ -24,7 +33,6 @@
         </b-button>
       </b-input-group-append>
     </b-input-group>
-
 
     <br /><br />
 
@@ -78,7 +86,7 @@
         ></b-form-textarea>
       </b-form-group>
     </b-form>
-  </div>
+  </b-modal>
 </template>
 
 <script>
@@ -90,22 +98,29 @@ export default {
     return {
       form: {
         facebookPixel: this.landingPage.facebookPixel,
-        googleTagManager: this.landingPage.googleTagManager
+        googleTagManager: this.landingPage.googleTagManager,
       },
-      host: `${location.protocol}//${location.host}`
+      host: `${location.protocol}//${location.host}`,
     };
   },
   created() {
-      this.form.facebookPixel = this.landingPage.facebookPixel;
-      this.form.googleTagManager = this.landingPage.googleTagManager;
+    this.form.facebookPixel = this.landingPage.facebookPixel;
+    this.form.googleTagManager = this.landingPage.googleTagManager;
     console.log(this.landingPage);
   },
   methods: {
+    showModal(event) {
+    },
+    hideModal(event) {
+    },
+    saveLandingPage(event) {
+      debugger;
+    },
     async onSubmit() {
-      debugger
+      debugger;
       const page = { ...this.landingPage, ...this.form };
       const result = await Page.updatePage(page);
-    }
-  }
+    },
+  },
 };
 </script>

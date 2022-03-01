@@ -37,18 +37,7 @@
           :onContextMenuAction="onContextMenuAction"
         ></list-page-listing>
 
-        <b-modal
-          button-size="lg"
-          id="new-landing-page"
-          ref="new-landing-page"
-          :title="`ASIN: ${currentLandingPage.asin}`"
-          size="xl"
-          @show="showModal"
-          @hidden="hideModal"
-          @ok="saveLandingPage"
-        >
-          <landing-page-modal :landingPage="currentLandingPage" />
-        </b-modal>
+        <landing-page-modal :landingPage="currentLandingPage" />
       </template>
     </b-colxx>
   </b-row>
@@ -89,15 +78,6 @@ export default {
     };
   },
   methods: {
-    showModal() {
-      debugger;
-    },
-    hideModal() {
-      debugger;
-    },
-    saveLandingPage() {
-      debugger;
-    },
     changeDisplayMode(displayType) {
       this.displayMode = displayType;
     },
@@ -166,10 +146,12 @@ export default {
       }
     },
     toggleModal(event, data) {
+      debugger
       this.currentLandingPage = data;
       this.$bvModal.show("new-landing-page");
     },
     showLandingPage(event, data) {
+      debugger
       this.$router.push({
         name: "show-landing-page",
         params: { id: data.objectId },
