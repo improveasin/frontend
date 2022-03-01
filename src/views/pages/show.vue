@@ -70,6 +70,11 @@ export default {
   },
 
   async created() {
+    if (!await Backendless.UserService.isValidLogin()) {
+      const user = await Backendless.UserService.loginAsGuest();
+      debugger;
+    }
+
     const settings = await Settings.getSettings();
     if (settings) {
       this.facebookPixel = settings.facebookPixel;
