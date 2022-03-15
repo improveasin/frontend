@@ -1,8 +1,8 @@
-FROM node:12.20-alpine as build-stage
+FROM node:latest as build-stage
 WORKDIR /app
-COPY package.json package-lock.json ./
+COPY package*.json ./
 RUN npm install
-COPY . .
+COPY ./ .
 RUN npm run build
 
 FROM nginx as production-stage
