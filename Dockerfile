@@ -1,8 +1,8 @@
 FROM node:latest as build-stage
 WORKDIR /app
-COPY package*.json ./
-RUN npm install
-COPY ./ .
+COPY package.json package-lock.json ./
+RUN npm install --build-from-resource
+COPY . .
 RUN npm run build
 
 FROM nginx as production-stage
