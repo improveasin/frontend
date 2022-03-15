@@ -1,4 +1,4 @@
-FROM node:latest as build-stage
+FROM node:12.20-alpine as build-stage
 WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm install --build-from-resource
