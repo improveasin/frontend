@@ -1,7 +1,7 @@
 FROM node:12.20-alpine as build-stage
 WORKDIR /app
 COPY package.json package-lock.json ./
-RUN npm install --build-from-resource
+RUN npm install
 COPY . .
 RUN npm run build
 
