@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: improveasin
+  labels:
+    app: improveasin
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: improveasin
+  template:
+    metadata:
+      labels:
+        app: improveasin
+    spec:
+      containers:
+        - name: improveasin
+          image: ghcr.io/tobiasoberrauch/improveasin:<VERSION>
+          imagePullPolicy: Always
+          env:
+          - name: PYTHONUNBUFFERED
+            value: "0"
+          ports:
+            - containerPort: 5000
+          resources:
+            limits:
+              memory: "2048Mi"
+              cpu: "500m"
+      restartPolicy: Always
