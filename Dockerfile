@@ -15,5 +15,5 @@ RUN npm run build
 
 FROM nginx:1.17.1-alpine
 RUN apk add --update alpine-sdk
-COPY nginx.conf /etc/nginx/nginx.conf
+COPY ./nginx.conf /etc/nginx/nginx.conf
 COPY --from=build /usr/src/app/dist/treo /usr/share/nginx/html
