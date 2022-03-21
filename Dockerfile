@@ -1,4 +1,4 @@
-FROM node:12.20-alpine AS build-stage
+FROM node:12.20-alpine AS build
 WORKDIR /usr/src/app
 
 RUN apk add --update alpine-sdk
@@ -13,7 +13,7 @@ RUN npm install --build-from-resource
 COPY . .
 RUN npm run build
 
-FROM nginx as production-stage
-RUN mkdir /app
-COPY --from=build-stage /usr/src/app/dist /app
-COPY vue.config.js /etc/nginx/nginx.conf
+FROM nginx:1.17.1-alpine
+RUN apk add --update alpine-sdk
+COPY nginx.conf /etc/nginx/nginx.conf
+COPY --from=build /usr/src/app/dist/treo /usr/share/nginx/html
