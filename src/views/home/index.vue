@@ -579,7 +579,7 @@
             </div>
             
 
-          <div class="section footer mb-0" id="sectionFooter">
+          <!-- <div class="section footer mb-0" id="sectionFooter"> -->
            
             <!-- <div class="container">
               <div class="row footer-row">
@@ -606,6 +606,7 @@
 
 
                <div class="anlegen-section">
+
                 <div class="container-s">
                     <div id="form" class="div-block-7">
                         <h2 class="heading-style-white centered">ImproveASIN ist dein Boost für externen Traffic<br></h2>
@@ -634,7 +635,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> </div>
 
             <div class="footer">
               <div class="container-standard">
@@ -646,8 +647,9 @@
               </div>
             </div>
 
-          </div>
-        </div>
+          <!-- </div> -->
+          
+        <!-- </div> -->
       </div>
     </div>
   </home-layout>
