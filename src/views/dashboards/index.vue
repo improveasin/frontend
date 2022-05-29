@@ -6,6 +6,7 @@
         <div class="separator mb-5"></div>
       </b-colxx>
     </b-row>
+
     <b-row>
       <b-colxx xl="6" lg="12">
         <icon-cards-carousel></icon-cards-carousel>
@@ -19,6 +20,7 @@
         <recent-orders></recent-orders>
       </b-colxx>
     </b-row>
+
     <b-row>
       <b-colxx lg="4" md="12" class="mb-4">
         <product-categories-polar-area></product-categories-polar-area>
@@ -30,6 +32,7 @@
         <tickets></tickets>
       </b-colxx>
     </b-row>
+
     <b-row>
       <b-colxx xl="6" lg="12" class="mb-4">
         <calendar></calendar>
@@ -38,6 +41,7 @@
         <best-sellers :title="$t('dashboards.best-sellers')"></best-sellers>
       </b-colxx>
     </b-row>
+
     <b-row>
       <b-colxx sm="12" lg="4" class="mb-4">
         <profile-statuses></profile-statuses>
@@ -57,7 +61,9 @@
         <cakes></cakes>
       </b-colxx>
     </b-row>
+
     <sortable-statictics-row></sortable-statictics-row>
+    
     <b-row>
       <b-colxx sm="12" md="6" class="mb-4">
         <website-visit-chart-card></website-visit-chart-card>
@@ -66,6 +72,7 @@
         <converconversion-rates-chart-card></converconversion-rates-chart-card>
       </b-colxx>
     </b-row>
+
     <b-row>
       <b-colxx lg="12" md="6" xl="4">
         <b-row>
@@ -108,6 +115,7 @@
         <top-rated-items></top-rated-items>
       </b-colxx>
     </b-row>
+    
   </div>
 </template>
 
