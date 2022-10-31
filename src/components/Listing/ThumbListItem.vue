@@ -40,6 +40,7 @@
           </b-button-group>
         </p>
       </div>
+      <!--
       <div class="custom-control custom-checkbox pl-1 align-self-center pr-4">
         <b-form-checkbox
           @click.prevent="toggleItem($event, data.asin)"
@@ -47,6 +48,7 @@
           class="itemCheck mb-0"
         />
       </div>
+      -->
     </div>
   </b-card>
 </template>

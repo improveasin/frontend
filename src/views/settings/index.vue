@@ -1,5 +1,13 @@
 <template>
   <div>
+
+    <b-row>
+      <b-colxx xxs="12">
+        <h1>Settings</h1>
+        
+        <div class="separator mb-5" />
+      </b-colxx>
+    </b-row>
     <!--
     <b-card class="mb-4" title="General">
       <b-form @submit="onSubmit">
@@ -28,10 +36,7 @@
     <b-card class="mb-4" title="Logo">
       <b-form @submit="onLogoSubmit">
         <b-form-group>
-          <div
-            class="flex flex-row pb-2"
-            style="display: flex; justify-content: space-evenly"
-          >
+          <div class="flex flex-row pb-2" style="display: flex; justify-content: space-evenly">
             <div class="basis-1/4">
               <h5>Current Logo</h5>
               <b-container v-if="currentLogo">
@@ -44,66 +49,36 @@
                 <b-img :src="newLogo" height="100"></b-img>
               </b-container>
               <b-input-group>
-                <b-form-file
-                  v-model="logo"
-                  @change="onLogoChange"
-                  :placeholder="$t('forms.logo')"
-                ></b-form-file>
+                <b-form-file v-model="logo" @change="onLogoChange" :placeholder="$t('forms.logo')"></b-form-file>
               </b-input-group>
               <b-container v-if="logo">
-                <b-button
-                  type="submit"
-                  variant="primary"
-                  class="mt-4 flex items-end"
-                  >Upload image</b-button
-                >
+                <b-button type="submit" variant="primary" class="mt-4 flex items-end">Upload image</b-button>
               </b-container>
             </div>
           </div>
         </b-form-group>
       </b-form>
 
-      <div
-        v-bind:class="[isLoading ? 'visible' : 'invisible', 'loading-overlay']"
-        style="background-color: rgb(255 255 255 / 90%); position: absolute;"
-      >
+      <div v-bind:class="[isLoading ? 'visible' : 'invisible', 'loading-overlay']"
+        style="background-color: rgb(255 255 255 / 90%); position: absolute;">
         <div class="loading"></div>
       </div>
     </b-card>
     <b-card class="mb-4" :title="$t('forms.analytics')">
       <b-form @submit.prevent="onSubmit">
-        <b-form-group
-          label-cols="2"
-          horizontal
-          :label="$t('forms.facebookPixel')"
-        >
-          <b-form-textarea
-            v-model="form.facebookPixel"
-            rows="6"
-            max-rows="6"
-          ></b-form-textarea>
+        <b-form-group label-cols="2" horizontal :label="$t('forms.facebookPixel')">
+          <b-form-textarea v-model="form.facebookPixel" rows="6" max-rows="6"></b-form-textarea>
         </b-form-group>
-        <b-form-group
-          label-cols="2"
-          horizontal
-          :label="$t('forms.googleTagManager')"
-        >
-          <b-form-textarea
-            type="password"
-            v-model="form.googleTagManager"
-            rows="6"
-            max-rows="6"
-          ></b-form-textarea>
+        <b-form-group label-cols="2" horizontal :label="$t('forms.googleTagManager')">
+          <b-form-textarea type="password" v-model="form.googleTagManager" rows="6" max-rows="6"></b-form-textarea>
         </b-form-group>
         <b-button type="submit" variant="primary" class="mt-4">{{
-          $t("forms.submit")
+            $t("forms.submit")
         }}</b-button>
       </b-form>
 
-      <div
-        v-bind:class="[isLoading ? 'visible' : 'invisible', 'loading-overlay']"
-        style="background-color: rgb(255 255 255 / 90%); position: absolute;"
-      >
+      <div v-bind:class="[isLoading ? 'visible' : 'invisible', 'loading-overlay']"
+        style="background-color: rgb(255 255 255 / 90%); position: absolute;">
         <div class="loading"></div>
       </div>
     </b-card>

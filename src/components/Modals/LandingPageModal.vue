@@ -1,28 +1,17 @@
 <template>
-  <b-modal
-    button-size="lg"
-    id="new-landing-page"
-    ref="new-landing-page"
-    :title="`ASIN: ${landingPage.asin}`"
-    size="xl"
-    @show="showModal"
-    @hidden="hideModal"
-    @ok="saveLandingPage"
-  >
+  <b-modal button-size="lg" id="new-landing-page" ref="new-landing-page" :title="`ASIN: ${landingPage.asin}`" size="xl"
+    @show="showModal" @hidden="hideModal" @ok="saveLandingPage">
     <div class="d-flex flex-row">
-      <img
-        :src="landingPage.image.url"
-        class="list-thumbnail responsive border-0"
-        :alt="landingPage.title"
-      />
+      <img :src="landingPage.image.url" class="list-thumbnail responsive border-0" :alt="landingPage.title"
+        v-if="landingPage.image" />
       <div>
         <h1>{{ landingPage.title }}</h1>
       </div>
     </div>
     <br />
     <b-list-group horizontal>
-      <b-list-group-item>Impressions<br /><span>2</span></b-list-group-item>
-      <b-list-group-item>Click<br /><span>4</span></b-list-group-item>
+      <b-list-group-item>Impressions<br /><span>{{ impressions }}</span></b-list-group-item>
+      <b-list-group-item>Clicks<br /><span>{{ clicks }}</span></b-list-group-item>
     </b-list-group>
     <b-input-group prepend="Page url">
       <b-form-input :value="`${host}/pages/${landingPage.objectId}`" />
@@ -37,21 +26,10 @@
     <br /><br />
 
     <b-button-group>
-      <b-button
-        icon="trash-fill"
-        aria-hidden="true"
-        @click="askForDelete(row, $event)"
-        variant="danger"
-        font-scale="1.5"
-        >Delete product</b-button
-      >
+      <b-button icon="trash-fill" aria-hidden="true" @click="askForDelete(row, $event)" variant="danger"
+        font-scale="1.5">Delete product</b-button>
 
-      <b-button
-        size="sm"
-        @click="updatePage(row, $event)"
-        class="mr-2"
-        variant="secondary"
-      >
+      <b-button size="sm" @click="updatePage(row, $event)" class="mr-2" variant="secondary">
         Sync with Amazon database
       </b-button>
     </b-button-group>
@@ -62,28 +40,11 @@
 
     <h3>{{ $t("forms.analytics") }}</h3>
     <b-form @submit.prevent="onSubmit">
-      <b-form-group
-        label-cols="2"
-        horizontal
-        :label="$t('forms.facebookPixel')"
-      >
-        <b-form-textarea
-          v-model="form.facebookPixel"
-          rows="6"
-          max-rows="6"
-        ></b-form-textarea>
+      <b-form-group label-cols="2" horizontal :label="$t('forms.facebookPixel')">
+        <b-form-textarea v-model="form.facebookPixel" rows="6" max-rows="6"></b-form-textarea>
       </b-form-group>
-      <b-form-group
-        label-cols="2"
-        horizontal
-        :label="$t('forms.googleTagManager')"
-      >
-        <b-form-textarea
-          type="password"
-          v-model="form.googleTagManager"
-          rows="6"
-          max-rows="6"
-        ></b-form-textarea>
+      <b-form-group label-cols="2" horizontal :label="$t('forms.googleTagManager')">
+        <b-form-textarea type="password" v-model="form.googleTagManager" rows="6" max-rows="6"></b-form-textarea>
       </b-form-group>
     </b-form>
   </b-modal>
@@ -101,23 +62,28 @@ export default {
         googleTagManager: this.landingPage.googleTagManager,
       },
       host: `${location.protocol}//${location.host}`,
+      impressions: 0,
+      clicks: 0,
     };
   },
-  created() {
+  async created() {
     this.form.facebookPixel = this.landingPage.facebookPixel;
     this.form.googleTagManager = this.landingPage.googleTagManager;
-    console.log(this.landingPage);
   },
   methods: {
-    showModal(event) {
+    async showModal(event) {
+      this.impressions = await Backendless.Counters.get(
+        `pages_${this.landingPage.objectId}_view`
+      )
+      this.clicks = await Backendless.Counters.get(
+        `pages_${this.landingPage.objectId}_click`
+      )
     },
     hideModal(event) {
     },
     saveLandingPage(event) {
-      debugger;
     },
     async onSubmit() {
-      debugger;
       const page = { ...this.landingPage, ...this.form };
       const result = await Page.updatePage(page);
     },

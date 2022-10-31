@@ -1,41 +1,19 @@
 <template>
   <b-row>
     <b-colxx class="disable-text-selection">
-      <list-page-heading
-        :title="$t('menu.data-list')"
-        :selectAll="selectAll"
-        :isSelectedAll="isSelectedAll"
-        :isAnyItemSelected="isAnyItemSelected"
-        :keymap="keymap"
-        :displayMode="displayMode"
-        :changeDisplayMode="changeDisplayMode"
-        :changeOrderBy="changeOrderBy"
-        :changePageSize="changePageSize"
-        :sort="sort"
-        :searchChange="searchChange"
-        :from="from"
-        :to="to"
-        :total="total"
-        :perPage="perPage"
-      ></list-page-heading>
+      <list-page-heading :title="$t('menu.data-list')" :selectAll="selectAll" :isSelectedAll="isSelectedAll"
+        :isAnyItemSelected="isAnyItemSelected" :keymap="keymap" :displayMode="displayMode"
+        :changeDisplayMode="changeDisplayMode" :changeOrderBy="changeOrderBy" :changePageSize="changePageSize"
+        :sort="sort" :searchChange="searchChange" :from="from" :to="to" :total="total" :perPage="perPage">
+      </list-page-heading>
       <template v-if="isLoad">
         <div class="loading"></div>
       </template>
       <template v-else>
-        <list-page-listing
-          :displayMode="displayMode"
-          :items="items"
-          :selectedItems="selectedItems"
-          :toggleItem="toggleItem"
-          :toggleModal="toggleModal"
-          :showLandingPage="showLandingPage"
-          :lastPage="lastPage"
-          :perPage="perPage"
-          :page="page"
-          :changePage="changePage"
-          :handleContextMenu="handleContextMenu"
-          :onContextMenuAction="onContextMenuAction"
-        ></list-page-listing>
+        <list-page-listing :displayMode="displayMode" :items="items" :selectedItems="selectedItems"
+          :toggleItem="toggleItem" :toggleModal="toggleModal" :showLandingPage="showLandingPage" :lastPage="lastPage"
+          :perPage="perPage" :page="page" :changePage="changePage" :handleContextMenu="handleContextMenu"
+          :onContextMenuAction="onContextMenuAction"></list-page-listing>
 
         <landing-page-modal :landingPage="currentLandingPage" />
       </template>
@@ -44,9 +22,11 @@
 </template>
 
 <script>
+import LandingPageModal from "../../components/Modals/LandingPageModal.vue";
 import ListPageHeading from "../../containers/pages/ListPageHeading";
 import ListPageListing from "../../containers/pages/ListPageListing";
-import LandingPageModal from "../../components/Modals/LandingPageModal.vue";
+import Page from '../../services/page';
+import store from '../../store';
 
 import { mapGetters } from "vuex";
 
@@ -65,7 +45,7 @@ export default {
         label: "Product Name",
       },
       page: 1,
-      perPage: 4,
+      perPage: 50,
       search: "",
       from: 0,
       to: 0,
@@ -77,6 +57,15 @@ export default {
       },
     };
   },
+  beforeRouteEnter(to, from, next) {
+    Backendless.UserService.getCurrentUser().then(user => {
+      Page.getPages(user.objectId).then(items => {
+        store.dispatch('pages/setPages', items);
+        next();
+      });
+    });
+  },
+
   methods: {
     changeDisplayMode(displayType) {
       this.displayMode = displayType;
@@ -146,7 +135,6 @@ export default {
       }
     },
     toggleModal(event, data) {
-      debugger
       this.currentLandingPage = data;
       this.$bvModal.show("new-landing-page");
     },
@@ -193,14 +181,22 @@ export default {
         this.isLoad = false;
 
         if (this.search.length === 0) {
+          this.from = 1;
+          this.to = pages.length;
+          this.total = pages.length;
           return pages;
         }
 
-        return pages.filter((page) => {
+        const filteredPages = pages.filter((page) => {
           return (
             page.title.toLowerCase().indexOf(this.search.toLowerCase()) > -1
           );
         });
+        this.from = 1;
+        this.to = filteredPages.length;
+        this.total = filteredPages.length;
+
+        return filteredPages;
       }
     },
   },

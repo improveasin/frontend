@@ -21,9 +21,10 @@ export default class PageService {
 
       Backendless.Data.of('pages')
         .find(queryBuilder)
-        .then(async pages => {
-          console.log('pages', pages)
+        .then(async items => {
+          console.log('items', items)
 
+          /*
           const items = await Promise.all(
             pages.map(async page => {
               page.impression = await Backendless.Counters.get(
@@ -35,7 +36,8 @@ export default class PageService {
 
               return page
             })
-          )
+          );
+          */
           resolve(items)
         })
         .catch(reject)

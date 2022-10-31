@@ -1,6 +1,5 @@
 import Backendless from 'backendless';
 import store from '../store';
-import Page from './page';
 
 export default class User {
   static accessToken;
@@ -34,6 +33,9 @@ export default class User {
                 if (response.success === false) {
                   User.logout()
                 } else {
+                  store.dispatch('pages/setPages', []);
+                  resolve({ user: response.profile, token });
+                  /*
                   Backendless.UserService.getCurrentUser().then(user => {
                     Page.getPages(user.objectId).then(items => {
                       log(`5/5 Fetch your landing pages...`);
@@ -45,6 +47,7 @@ export default class User {
                       .catch(reject)
                   })
                     .catch(reject)
+                    */
                 }
               })
             })
