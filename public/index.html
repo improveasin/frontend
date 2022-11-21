@@ -3,8 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no" />
     <link rel="stylesheet" href="/assets/fonts/simple-line-icons/css/simple-line-icons.css">
     <link rel="stylesheet" href="/assets/fonts/iconsmind-s/css/iconsminds.css">
     <title>Improveasin</title>
@@ -24,13 +23,13 @@
             position: fixed;
             z-index: 1;
         }
-
+        
         @keyframes spin {
             to {
                 -webkit-transform: rotate(360deg);
             }
         }
-
+        
         @-webkit-keyframes spin {
             to {
                 -webkit-transform: rotate(360deg);
@@ -41,7 +40,7 @@
 
 <body>
     <script type="text/javascript">
-        window.onAmazonLoginReady = function () {
+        window.onAmazonLoginReady = function() {
             amazon.Login.setClientId('amzn1.application-oa2-client.40a26f114fae4d62b4961f60590c9d9a');
         };
     </script>
@@ -60,14 +59,21 @@
         gtag('config', 'G-LQYNJ10XBD');
     </script>
     <script>
-        !function (f, b, e, v, n, t, s) {
-            if (f.fbq) return; n = f.fbq = function () {
+        ! function(f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function() {
                 n.callMethod ?
                     n.callMethod.apply(n, arguments) : n.queue.push(arguments)
             };
-            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
-            n.queue = []; t = b.createElement(e); t.async = !0;
-            t.src = v; s = b.getElementsByTagName(e)[0];
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = '2.0';
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
             s.parentNode.insertBefore(t, s)
         }(window, document, 'script',
             'https://connect.facebook.net/en_US/fbevents.js');
@@ -95,5 +101,6 @@
       To create a production bundle, use `npm run prod` or `yarn prod`.
     -->
 </body>
+
 
 </html>

@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: improveasin
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    cert-manager.io/cluster-issuer: letsencrypt
+    kubernetes.io/tls-acme: "true"
+spec:
+  tls:
+  - hosts:
+    - improveasin.space
+    secretName: tls-latest-aiproduct.io
+  rules:
+   - host: improveasin.space
+     http:
+      paths:
+      - path: /
+        backend:
+          serviceName: improveasin
+          servicePort: 5000
+
