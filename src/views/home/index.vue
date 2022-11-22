@@ -7,8 +7,9 @@
           <headroom style="height:initial;">
             <div class="navbar">
               <div class="container-nav">
-                <div class="div-block-2"><img src="/assets/img/improveasin-logo.svg" loading="lazy" width="122" alt=""
-                    class="image">
+                <div class="div-block-2">
+                  <img src="/assets/img/improveasin-logo.svg" loading="lazy" width="300" alt=""
+                    class="image" style="width:180px; height: 100px;">
                   <div class="navbar-wrapper">
                     <a href="#" class="navbar-link">Über uns</a>
                     <div class="padding-horizontal"></div>
@@ -65,142 +66,69 @@
             </div>
           </div>
 
-
-
-          <div class="with-improveasin-section">
-            <div class="container-effect">
-              <div data-w-id="ec373471-f0ac-2ab1-3e87-1566c739cadc" class="effect-wrapper">
-                <div class="heading-content_component">
-                  <div class="check-icon"></div>
-                  <div class="padding-horizontal is-small"></div>
-                  <h2 class="h2 centered">Ohne Improveasin Landingpage<br></h2>
-                </div>
-                <p class="paragraph-standard centered"><span class="text-span">Beispiel:<br></span><br>1000 Leute kommen
-                  pro Tag durch Werbung (Ads) auf dein Amazon Listing und 10 Leute kaufen dein Produkt. Dann hast du
-                  eine Conversion von gerade mal 1%.</p>
-                <div id="How-It-works" data-w-id="768a61f3-3ea2-83ed-34e2-7e5286719661"
-                  class="section black wf-section">
-                  <div class="w-layout-grid container small flex">
-                    <div data-w-id="768a61f3-3ea2-83ed-34e2-7e5286719663" class="timeline-wrapper">
-                      <div class="grey-line">
-                        <div class="white-line red"></div>
-                      </div>
+          <div class="n-comparison-section">
+            <div class="n-container">
+              <div class="n-box-wrapper">
+                <div class="n-stepbox-overview">
+                  <div class="div-block-2">
+                    <div class="n-iconbox"></div>
+                    <p class="n-header">Ohne Improveasin Landingpage</p>
+                  </div>
+                  <p class="n-paragrpah"><strong class="bold-text">Beispiel:<br></strong>1000 Leute kommen pro Tag durch
+                    Werbung (Ads) auf dein Amazon Listing und 10 Leute kaufen dein Produkt. Dann hast du eine Conversion
+                    von gerade mal 1%.</p>
+                  <div class="n-stepbox-wrapper">
+                    <div class="n-stepbox">
+                      <div class="n-icon"></div>
+                      <p class="n-stepbox-paragraph">1000 Leute Klicken deine Posts &amp; Ads</p>
+                      <div class="n-numberbox">1</div>
                     </div>
-                    <div id="w-node-_768a61f3-3ea2-83ed-34e2-7e5286719666-12513ffa" class="process-wrapper">
-                      <div class="step-wrapper margin-l">
-                        <div class="step"><img src="/assets/img/red-circle-1.svg" loading="lazy" alt=""
-                            class="step-1-number red">
-                          <div class="black-line"></div>
-                        </div>
-                        <div class="step-1-info-wrapper">
-                          <div class="red-effect-img"></div>
-                          <div class="step-info">
-                            <p class="effect-text-white">1000 Leute Klicken deine Posts &amp; Ads<br></p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="step-wrapper margin-l">
-                        <div class="step"><img src="/assets/img/Group-12.svg" loading="lazy" alt=""
-                            class="step-2-number red">
-                          <div class="black-line"></div>
-                        </div>
-                        <div class="step-2-info-wrapper _2">
-                          <div class="red-effect-img _2"></div>
-                          <div class="step-info">
-                            <p class="text-style-white inverted">1000 Leute auf dem Listing &amp; 10 kaufen<br></p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="step-wrapper margin-l">
-                        <div class="step"><img src="/assets/img/Group-13.svg" loading="lazy" alt=""
-                            class="step-3-number red">
-                          <div class="black-line is-abstand"></div>
-                        </div>
-                        <div class="step-3-info-wrapper">
-                          <div class="red-effect-img _3"></div>
-                          <div class="step-info">
-                            <p class="effect-text-white">1% Conversion Rate</p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="step-wrapper margin-l"></div>
+                    <div class="n-stepbox">
+                      <div class="n-icon _2"></div>
+                      <p class="n-stepbox-paragraph">1000 Leuten auf dem Listing &amp; 10 auf Amazon</p>
+                      <div class="n-numberbox">2</div>
+                    </div>
+                    <div class="n-stepbox">
+                      <div class="n-icon _3"></div>
+                      <p class="n-stepbox-paragraph">1% Conversion Rate</p>
+                      <div class="n-numberbox">3</div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="effect-wrapper">
-                <div class="heading-content_component">
-                  <div class="check-icon blue"></div>
-                  <div class="padding-horizontal is-small"></div>
-                  <h2 class="h2 centered">Mit Improveasin Landingpage<br></h2>
-                </div>
-                <p class="paragraph-standard centered"><span class="text-span">Beispiel:<br></span><br>Wenn von
-                  denselben 1000 Leuten nur 100 Leute auf dein Amazon Listing kommen, weil 900 Interessenten vorher
-                  ausgefiltert wurden, die sich gegen einen Kauf entschieden haben und es
-                  kaufen dieselben 10 Leute dein Produkt, dann hast du eine Conversion von 10%.  Das klingt schon
-                  besser, oder?</p>
-                <div id="How-It-works" data-w-id="09d1ea40-05c4-47e2-6cbd-a4c2280af897"
-                  class="section black wf-section">
-                  <div class="w-layout-grid container small flex">
-                    <div data-w-id="1ae3d8cd-bad6-9111-3513-5ee8ef756d67" class="timeline-wrapper">
-                      <div class="grey-line">
-                        <div class="white-line"></div>
-                      </div>
+                <div class="n-stepbox-overview">
+                  <div class="div-block-2">
+                    <div class="n-iconbox _2"></div>
+                    <p class="n-header">Mit Improveasin Landingpage</p>
+                  </div>
+                  <p class="n-paragrpah"><strong>Beispiel:<br></strong>Wenn von denselben 1000 Leuten nur 100 Leute auf
+                    dein Amazon Listing kommen, weil 900 Interessenten vorher ausgefiltert wurden, die sich gegen einen
+                    Kauf entschieden haben und es kaufen dieselben 10 Leute dein Produkt, dann hast du eine Conversion
+                    von 10%. Das klingt schon besser, oder?</p>
+                  <div class="n-stepbox-wrapper">
+                    <div class="n-stepbox">
+                      <div class="n-icon-green"></div>
+                      <p class="n-stepbox-paragraph">1000 Leute Klicken deine Posts &amp; Ads</p>
+                      <div class="n-numberbox _2">1</div>
                     </div>
-                    <div id="w-node-_1ae3d8cd-bad6-9111-3513-5ee8ef756d6a-12513ffa" class="process-wrapper">
-                      <div class="step-wrapper margin-l">
-                        <div class="step"><img src="/assets/img/1-.svg" loading="lazy" alt="" class="step-1-number">
-                          <div class="black-line"></div>
-                        </div>
-                        <div class="step-1-info-wrapper">
-                          <div class="effect-img"></div>
-                          <div class="step-info">
-                            <p class="effect-text-white">1000 Leute Klicken deine Posts &amp; Ads<br></p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="step-wrapper margin-l">
-                        <div class="step"><img src="/assets/img/2-.svg" loading="lazy" alt="" class="step-2-number">
-                          <div class="black-line"></div>
-                        </div>
-                        <div class="step-2-info-wrapper">
-                          <div class="effect-img _2"></div>
-                          <div class="step-info">
-                            <p class="text-style-white">Filtert Negativ-Entscheider aus, bevor sie auf dein Amazon
-                              Listing kommen</p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="step-wrapper margin-l">
-                        <div class="step"><img src="/assets/img/circle-3.svg" loading="lazy" alt=""
-                            class="step-3-number">
-                          <div class="black-line"></div>
-                        </div>
-                        <div class="step-3-info-wrapper">
-                          <div class="effect-img _3"></div>
-                          <div class="step-info">
-                            <p class="effect-text-white">100 Leute auf dem Listing &amp; 10 kaufen</p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="step-wrapper margin-l">
-                        <div class="step"><img src="/assets/img/circle-4.svg" loading="lazy" alt=""
-                            class="step-4-number">
-                          <div class="black-line is-blue"></div>
-                        </div>
-                        <div class="step-4-info-wrapper">
-                          <div class="effect-img _4"></div>
-                          <div class="step-info">
-                            <p class="effect-text-white">10% Conversion Rate</p>
-                          </div>
-                        </div>
-                      </div>
+                    <div class="n-stepbox blue">
+                      <div class="n-icon-green _2"></div>
+                      <p class="n-stepbox-paragraph white">Filtert Negativ-Entscheider aus, bevor sie auf dein Amazon
+                        Listing kommen</p>
+                      <div class="n-numberbox white">2</div>
+                    </div>
+                    <div class="n-stepbox">
+                      <div class="n-icon-green _3"></div>
+                      <p class="n-stepbox-paragraph">100 Leute auf dem Listing &amp; 10 kaufen</p>
+                      <div class="n-numberbox _2">3</div>
+                    </div>
+                    <div class="n-stepbox">
+                      <div class="n-icon-green _4"></div>
+                      <p class="n-stepbox-paragraph">10% Conversion Rate</p>
+                      <div class="n-numberbox _2">4</div>
                     </div>
                   </div>
                 </div>
-                <div class="div-block-13">
-                  <div class="div-block-14"></div>
-                </div>
+                <p id="w-node-_0b68db74-9a72-c05a-cf4e-fe810a4ca391-c5b36edc" class="n-vs-paragraph">VS.</p>
               </div>
             </div>
           </div>
