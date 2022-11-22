@@ -1,50 +1,20 @@
 <template>
-  <nav class="navbar fixed-top">
-    <router-link class="navbar-logo" :to="adminRoot">
-      <span class="logo d-none d-xs-block"></span>
-      <span class="logo-mobile d-block d-xs-none"></span>
-    </router-link>
+  <nav class="navbar fixed-top d-flex">
     <div class="d-flex align-items-center navbar-left">
-      <a
-        href="#"
-        class="menu-button d-none d-md-block"
-        @click.prevent.stop="
-          changeSideMenuStatus({
-            step: menuClickCount + 1,
-            classNames: menuType,
-            selectedMenuHasSubItems,
-          })
-        ">
-        <menu-icon />
-      </a>
-      <a
-        href="#"
-        class="menu-button-mobile d-xs-block d-sm-block d-md-none"
-        @click.prevent.stop="changeSideMenuForMobile(menuType)"
-      >
-        <mobile-menu-icon />
-      </a>
+      <img src="/assets/img/improveasin-logo.svg" loading="lazy" width="300" alt="" class="image"
+        style="width: 140px;
+    margin-top: 10px;
+    margin-left: 5px;">
     </div>
 
     <div class="navbar-right">
       <div class="user d-inline-block">
-        <b-dropdown
-          class="dropdown-menu-right"
-          right
-          variant="empty"
-          toggle-class="p-0"
-          menu-class="mt-3"
-          no-caret
-        >
+        <b-dropdown class="dropdown-menu-right" right variant="empty" toggle-class="p-0" menu-class="mt-3" no-caret>
           <template slot="button-content">
             <span class="name mr-1" v-if="currentUser">{{
-              currentUser.Name
+                currentUser.Name
             }}</span>
-            <b-icon
-              icon="person-fill"
-              style="color: #ed7117"
-              font-scale="2"
-            ></b-icon>
+            <b-icon icon="person-fill" style="color: #ed7117" font-scale="2"></b-icon>
           </template>
           <b-dropdown-item>Account</b-dropdown-item>
           <b-dropdown-item @click="logout">Sign out</b-dropdown-item>
