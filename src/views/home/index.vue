@@ -26,7 +26,7 @@
           </headroom>
         </div>
 
-        <div class="content-container" id="home">
+        <div class="content-container" id="home" style="">
 
           <div class="hero-section">
             <div class="container-standard">
@@ -205,9 +205,9 @@
         <div class="footer">
           <div class="container-standard">
             <div class="footer-wrapper">
-              <a href="impressum.html" class="footer-link">Impressum</a>
+              <a href="/impressum" class="footer-link">Impressum</a>
               <div class="padding-horizontal"></div>
-              <a href="datenschutz.html" class="footer-link">Datenschutz</a>
+              <a href="/datenschutz" class="footer-link">Datenschutz</a>
             </div>
           </div>
         </div>

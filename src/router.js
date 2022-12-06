@@ -13,6 +13,14 @@ const routes = [
     // redirect: `${adminRoot}/piaf`,
   },
   {
+    path: "/impressum",
+    component: () => import(/* webpackChunkName: "impressum" */ "./views/impressum"),
+  },
+  {
+    path: "/datenschutz",
+    component: () => import(/* webpackChunkName: "datenschutz" */ "./views/datenschutz"),
+  },
+  {
     name: 'show-landing-page',
     path: "/pages/:id",
     component: () => import(/* webpackChunkName: "show" */ './views/pages/show')

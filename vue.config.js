@@ -10,18 +10,9 @@ module.exports = {
     }
   },
   devServer: {
-    clientLogLevel: 'warning',
     hot: true,
-    contentBase: 'dist',
     compress: true,
     open: true,
-    overlay: { warnings: false, errors: true },
-    publicPath: '/',
-    quiet: true,
-    watchOptions: {
-      poll: false,
-      ignored: /node_modules/
-    }
   },
 
   chainWebpack: config => {
