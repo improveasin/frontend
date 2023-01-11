@@ -11,12 +11,6 @@
                                     <img src="/assets/img/improveasin-logo.svg" loading="lazy" width="300" alt=""
                                         class="image" style="width:180px; height: 100px;">
                                     <div class="navbar-wrapper">
-                                        <a href="#" class="navbar-link">Über uns</a>
-                                        <div class="padding-horizontal"></div>
-                                        <a href="#" class="navbar-link">Vergleich</a>
-                                        <div class="padding-horizontal"></div>
-                                        <a href="#" class="navbar-link">Vorteile</a>
-                                        <div class="padding-horizontal is-medium"></div>
 
                                         <AmazonLogin />
                                     </div>
@@ -111,9 +105,9 @@
                                     Website voll umfänglich nutzen können. Durch die Nutzung dieser Website erklären Sie
                                     sich mit der Bearbeitung der über Sie erhobenen Daten durch Google in der zuvor
                                     beschriebenen Art und Weise und zu dem zuvor benannten Zweck einverstanden.</div>
-                                
+
                             </div>
-                            
+
                         </div>
                         <br /><br />
                     </div>

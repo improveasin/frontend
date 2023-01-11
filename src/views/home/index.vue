@@ -11,13 +11,7 @@
                   <img src="/assets/img/improveasin-logo.svg" loading="lazy" width="300" alt=""
                     class="image" style="width:180px; height: 100px;">
                   <div class="navbar-wrapper">
-                    <a href="#" class="navbar-link">Über uns</a>
-                    <div class="padding-horizontal"></div>
-                    <a href="#" class="navbar-link">Vergleich</a>
-                    <div class="padding-horizontal"></div>
-                    <a href="#" class="navbar-link">Vorteile</a>
                     <div class="padding-horizontal is-medium"></div>
-
                     <AmazonLogin />
                   </div>
                 </div>
@@ -79,17 +73,17 @@
                     von gerade mal 1%.</p>
                   <div class="n-stepbox-wrapper">
                     <div class="n-stepbox">
-                      <div class="n-icon"></div>
+                      <div class="n-icon-red"></div>
                       <p class="n-stepbox-paragraph">1000 Leute Klicken deine Posts &amp; Ads</p>
                       <div class="n-numberbox">1</div>
                     </div>
                     <div class="n-stepbox">
-                      <div class="n-icon _2"></div>
+                      <div class="n-icon-red _2"></div>
                       <p class="n-stepbox-paragraph">1000 Leuten auf dem Listing &amp; 10 auf Amazon</p>
                       <div class="n-numberbox">2</div>
                     </div>
                     <div class="n-stepbox">
-                      <div class="n-icon _3"></div>
+                      <div class="n-icon-red _3"></div>
                       <p class="n-stepbox-paragraph">1% Conversion Rate</p>
                       <div class="n-numberbox">3</div>
                     </div>
