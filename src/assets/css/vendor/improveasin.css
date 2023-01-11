@@ -6582,12 +6582,12 @@ figcaption {
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
   border-radius: 1em;
-  background-color: #ffd2dd;
+  background-color: #f53257;
   background-image: url('../images/Vector.svg');
   background-position: 50% 50%;
   background-size: 40%;
   background-repeat: no-repeat;
-  color: #5cffa0;
+  color: #fff;
 }
 
 .n-icon._2 {
@@ -6641,7 +6641,7 @@ figcaption {
   flex: 0 0 auto;
   border-radius: 1em;
   background-color: #0038ff;
-  /*background-image: url('../images/Group-68.svg');*/
+  background-image: url('../sass/images/Group-68.svg');
   background-position: 50% 50%;
   background-size: 70%;
   background-repeat: no-repeat;
@@ -6653,7 +6653,7 @@ figcaption {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
-  background-color: #fff;
+  background-color: #0038ff;
   background-image: url('../images/improveasin-1.svg');
 }
 

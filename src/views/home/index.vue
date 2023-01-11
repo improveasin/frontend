@@ -110,11 +110,11 @@
                       <p class="n-stepbox-paragraph">1000 Leute Klicken deine Posts &amp; Ads</p>
                       <div class="n-numberbox _2">1</div>
                     </div>
-                    <div class="n-stepbox blue">
+                    <div class="n-stepbox">
                       <div class="n-icon-green _2"></div>
-                      <p class="n-stepbox-paragraph white">Filtert Negativ-Entscheider aus, bevor sie auf dein Amazon
+                      <p class="n-stepbox-paragraph">Filtert Negativ-Entscheider aus, bevor sie auf dein Amazon
                         Listing kommen</p>
-                      <div class="n-numberbox white">2</div>
+                      <div class="n-numberbox _2">2</div>
                     </div>
                     <div class="n-stepbox">
                       <div class="n-icon-green _3"></div>
