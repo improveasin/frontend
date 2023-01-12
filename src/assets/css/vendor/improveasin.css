@@ -6653,8 +6653,9 @@ figcaption {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
-  background-color: #0038ff;
-  background-image: url('../images/improveasin-1.svg');
+  background-color: #fff;
+  background-image: url('../../img/improveasin-logo.svg');
+  background-size: 90%;
 }
 
 .n-icon-green._3 {
@@ -6695,8 +6696,8 @@ figcaption {
 
 .n-icon-red._2 {
   background-color: #ff3257;
-  background-image: url('../../img/improveasin-logo.svg');
-  background-size: 90%;
+  background-image: url('../images/Vector_1.svg');
+  background-size: 50%;
 }
 
 .n-icon-red._3 {
