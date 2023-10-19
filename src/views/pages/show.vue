@@ -1,8 +1,5 @@
 <template>
   <b-container v-if="loaded">
-    <div v-if="logo" class="mb-4">
-      <b-img :src="logo" height="100"></b-img>
-    </div>
     <b-row>
       <b-col col lg="6" class="d-none d-lg-block">
         <Carousel :images="page.images"></Carousel>
@@ -10,6 +7,11 @@
       <b-col col lg="6" sm="12">
         <h3 v-if="page.title">{{ page.title }}</h3>
         <Carousel class="d-lg-none" :images="page.images"></Carousel>
+
+        <div v-if="logo" class="mb-4">
+          <b-img :src="logo" height="100"></b-img>
+        </div>
+
         <small v-if="page.brand">Von {{ page.brand }}</small>
         <div v-if="page.reducedPrice">
           Preis:<i style="text-decoration: line-through">{{ page.price }}</i
@@ -54,10 +56,10 @@ import Settings from "../../services/settings";
 
 export default {
   metaInfo: {
-    title: "Improveasin",
+    title: "Improveasin"
   },
   components: {
-    Carousel,
+    Carousel
   },
   data() {
     return {
@@ -65,12 +67,12 @@ export default {
       page: {},
       logo: undefined,
       googleTagManagerPixel: "",
-      facebookPixel: "",
+      facebookPixel: ""
     };
   },
 
   async created() {
-    if (!await Backendless.UserService.isValidLogin()) {
+    if (!(await Backendless.UserService.isValidLogin())) {
       const user = await Backendless.UserService.loginAsGuest();
       debugger;
     }
@@ -94,13 +96,13 @@ export default {
 
     Backendless.Data.of("pages")
       .findById(objectId)
-      .then((page) => {
+      .then(page => {
         this.loaded = true;
 
         this.page = page;
         console.log("page", page);
       })
-      .catch((error) => {
+      .catch(error => {
         console.log("error", error);
       });
   },
@@ -113,8 +115,8 @@ export default {
       console.log(`click for ${page.objectId} with number ${counter}`);
 
       window.open(page.productUrl);
-    },
-  },
+    }
+  }
 };
 </script>
 
