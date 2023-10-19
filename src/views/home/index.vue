@@ -387,8 +387,8 @@
       </div>
 
       <div id="footer" class="bg-white py-2 mt-12 container mx-auto flex items-center justify-end gap-4">
-        <a href="">Impressum</a>
-        <a href="">Datenschutz</a>
+        <a href="/impressum">Impressum</a>
+        <a href="/datenschutz">Datenschutz</a>
       </div>
     </div>
   </home-layout>
