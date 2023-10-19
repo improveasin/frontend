@@ -9,7 +9,7 @@
           <div class="container mx-auto flex justify-between">
             <div class="flex items-center">
               <img
-                src="http://localhost:8080/assets/img/improveasin-logo.svg"
+                src="/assets/img/improveasin-logo.svg"
                 class="w-44"
               />
             </div>
